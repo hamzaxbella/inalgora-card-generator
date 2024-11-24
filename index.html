@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership Card Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+    <h1>Membership Card Generator</h1>
+    <form id="cardForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Enter your name" required>
+
+        <label for="cne">CNE ID:</label>
+        <input type="text" id="cne" placeholder="Enter your CNE ID" required>
+
+        <label for="speciality">Speciality:</label>
+        <input type="text" id="speciality" placeholder="Enter your speciality" required>
+
+        <label for="profileImage" class="upload-label">
+            <span>Drop or Click to Upload Image</span>
+            <input type="file" id="profileImage" accept="image/*" hidden />
+        </label>
+
+        <button type="submit">Generate Card</button>
+    </form>
+
+    <div id="preview">
+        <h2>Preview</h2>
+        <canvas id="cardCanvas"></canvas>
+    </div>
+
+    <button id="downloadBtn" disabled>Download Membership Card</button>
+</div>
+
+<!-- Cropper Modal -->
+<div id="cropperModal" class="modal">
+    <div class="modal-content">
+        <h3>Adjust Profile Image</h3>
+        <img id="cropperImage" src="" alt="Profile Image">
+        <button id="cropButton">Apply</button>
+        <button id="closeModal">Close</button>
+    </div>
+</div>
+
+<script src="script.js" type="module"></script>
+</body>
+</html>
